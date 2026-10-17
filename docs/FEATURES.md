@@ -56,6 +56,7 @@ If a mission can't run (camera or mic permission off, no reference photo), it sw
 - ✅ "Use my current location" (iPhone permission prompt) or search by town. Pull to refresh.
 
 ## Settings
+- 🧪 **About** (0.7.3): icon, version and build, app ID, licence, links to "What's new" (Releases) and the source code, and a button that copies the AltStore source link. The quickest way to check an AltStore update worked.
 - 🧪 **Signing** (0.7.1): "at least X days left" from the installed profile, then "Refreshed by AltStore ✓" once AltStore has renewed it. The old 24 h / 3 h re-sign reminders were removed, since they'd fire even after AltStore refreshed. AltStore → My Apps shows the exact days left.
 - ✅ Lock-screen card status, last error, "Try starting the card now".
 - ✅ Notifications status, phone volume, "Ring a test alarm in 10 seconds", tips.

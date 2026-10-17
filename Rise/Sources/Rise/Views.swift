@@ -310,6 +310,32 @@ struct SettingsView: View {
     var body: some View {
         Form {
             Section {
+                HStack(spacing: 14) {
+                    if let icon = UIImage(named: "Icon") {
+                        Image(uiImage: icon).resizable().frame(width: 60, height: 60)
+                            .clipShape(RoundedRectangle(cornerRadius: 13, style: .continuous))
+                    }
+                    VStack(alignment: .leading, spacing: 2) {
+                        Text("Rise").font(.title2.bold())
+                        Text("Version \(Self.info("CFBundleShortVersionString"))").foregroundStyle(.secondary)
+                    }
+                }
+                LabeledContent("Build", value: Self.info("CFBundleVersion"))
+                LabeledContent("App ID", value: Bundle.main.bundleIdentifier ?? "?")
+                LabeledContent("Made by", value: "HarveyK1")
+                LabeledContent("Licence", value: "GPL-3.0")
+                Link("What's new", destination: URL(string: "https://github.com/HarveyK1/Rise-Alarm/releases")!)
+                Link("Source code on GitHub", destination: URL(string: "https://github.com/HarveyK1/Rise-Alarm")!)
+                Button("Copy AltStore source link") {
+                    UIPasteboard.general.string = "https://raw.githubusercontent.com/HarveyK1/Rise-Alarm/main/altstore-source.json"
+                }
+            } header: {
+                Text("About")
+            } footer: {
+                Text("Updates come through AltStore → My Apps. Weather data by Open-Meteo.")
+            }
+
+            Section {
                 // The date comes from the profile Rise was installed with. An AltStore refresh can renew the
                 // signing without changing that copy, so it's a minimum, and once passed, AltStore has refreshed it.
                 if let expiry = Provision.expiry {
@@ -377,6 +403,10 @@ struct SettingsView: View {
             let settings = await UNUserNotificationCenter.current().notificationSettings()
             notificationsOn = settings.authorizationStatus == .authorized
         }
+    }
+
+    private static func info(_ key: String) -> String {
+        Bundle.main.object(forInfoDictionaryKey: key) as? String ?? "?"
     }
 
     private func remaining(_ seconds: TimeInterval) -> String {

@@ -2,7 +2,7 @@
 
 An iPhone alarm clock you have to get up to turn off. Rise rings until you finish a wake-up mission: solve sums, shake the phone, scan a code in another room, and more.
 
-**Current version: 0.7.2**, for iOS 17 and later.
+**Current version: 0.7.3**, for iOS 17 and later.
 
 > **Upgrading from 0.7.1 or earlier?** Version 0.7.2 has a new app ID, so AltStore treats it as a new app. Install Rise from the source again, delete the old copy, and set your alarms up once more.
 
@@ -38,12 +38,12 @@ Full details: [docs/FEATURES.md](docs/FEATURES.md).
 
 Rise is a SwiftPM app built on Windows, with no Mac, using WSL + [xtool](https://github.com/xtool-org/xtool) as the compiler. It produces an **unsigned** `Rise.ipa`, and AltStore signs it when it installs. Toolchain setup is in [docs/SETUP.md](docs/SETUP.md); how the app works inside is in [docs/TECHNICAL-NOTES.md](docs/TECHNICAL-NOTES.md).
 
-1. Bump the version in **both** `Rise/Info.plist` and `Rise/RiseWidget-Info.plist`.
+1. Bump the version (`CFBundleShortVersionString` and `CFBundleVersion`) in **both** `Rise/Info.plist` and `Rise/RiseWidget-Info.plist`.
 2. Build (PowerShell, from the repo folder):
    ```powershell
    wsl -d Ubuntu -u root --cd "$PWD" -- bash -c "tr -d '\r' < Rise/build.sh > /root/build.sh && bash /root/build.sh"
    ```
-3. Publish: `python update_source.py "what changed"`, then `gh release create v<version> Rise.ipa --title "Rise <version>" --notes-file notes.md`, then commit and push.
+3. Publish: commit and push the code, then `gh release create v<version> Rise.ipa --title "Rise <version>" --notes-file notes.md`, then `python update_source.py "what changed"` and commit and push `altstore-source.json`.
 
 ```
 Rise/                       the app (SwiftPM + xtool project)
