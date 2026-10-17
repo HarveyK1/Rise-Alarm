@@ -36,7 +36,7 @@ Rise started as a personal alarm app: an alarm you have to get up to turn off, w
 | 0.6.2 | Solid black top bar (no grey frosted bar when scrolling) | Confirmed |
 | 0.7.0 | **Custom sounds** (import from Files) + **wake-up stats & streak** | Not yet confirmed |
 | 0.7.1 | AltStore-only: the Settings "Signing" section ("at least X days left", then "Refreshed by AltStore ✓"); false re-sign reminders removed | First update delivered through the AltStore source |
-| 0.7.2 | New neutral app ID `app.risealarm.Rise` (no personal details anywhere in the project) | A new app to AltStore: install it from the source, delete the old one, set alarms up again |
+| 0.7.2 | New neutral app ID `app.risealarm.Rise` (no personal details anywhere in the project) | Installed from the AltStore source (after an AltStore "HTTP 503" fixed by restarting AltServer and reinstalling AltStore) |
 
 ## Part 3: how it gets to the phone
 

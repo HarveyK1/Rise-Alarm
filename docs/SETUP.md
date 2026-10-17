@@ -56,4 +56,5 @@ Useful for iOS-level problems. It's how the lock-screen card issues were found. 
 - **PowerShell mangles `$` or nested quotes** inside `wsl ... bash -c "..."`. Put the commands in a `.sh` file and run that, or use single quotes. For gh release notes, use `--notes-file`.
 - **`$'\r': command not found`**: the script has Windows line endings. The `tr -d '\r'` in the README command handles it.
 - **AltStore says the app's permissions or version don't match the source**: regenerate the entry with `update_source.py` from the exact IPA that was uploaded.
+- **AltStore: "HTTP 503 / auth servers returned an error" when installing**: Apple's sign-in servers refused for a moment. What fixed it here: restart AltServer on the PC, then reinstall AltStore from AltServer and try again. Otherwise wait 30–60 minutes and retry.
 - **Swift test scripts** run with `. /root/.local/share/swiftly/env.sh; swift file.swift`. Used to check JSON decoding and streak logic.
