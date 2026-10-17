@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CFBundleDisplayName</key>
+	<string>Rise</string>
+	<key>CFBundleShortVersionString</key>
+	<string>0.7.2</string>
+	<key>UIBackgroundModes</key>
+	<array>
+		<string>audio</string>
+	</array>
+	<key>CFBundleIcons</key>
+	<dict>
+		<key>CFBundlePrimaryIcon</key>
+		<dict>
+			<key>CFBundleIconFiles</key>
+			<array>
+				<string>Icon</string>
+			</array>
+		</dict>
+	</dict>
+	<key>NSSupportsLiveActivities</key>
+	<true/>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleURLName</key>
+			<string>app.risealarm.Rise</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>rise</string>
+			</array>
+		</dict>
+	</array>
+	<key>NSCameraUsageDescription</key>
+	<string>Rise uses the camera to scan your code or match your photo in wake-up missions.</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Rise uses your location to show the weather where you are.</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>Rise listens for the word you say in the "Say the word" wake-up mission.</string>
+	<key>NSSpeechRecognitionUsageDescription</key>
+	<string>Rise turns what you say into text to check the "Say the word" mission.</string>
+</dict>
+</plist>

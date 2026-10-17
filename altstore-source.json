@@ -1,0 +1,42 @@
+{
+  "name": "Rise",
+  "subtitle": "Alarm clock with wake-up missions",
+  "description": "Rise: alarms you have to get up to turn off. Built from source at github.com/HarveyK1/Rise-Alarm",
+  "iconURL": "https://raw.githubusercontent.com/HarveyK1/Rise-Alarm/main/Rise/Icon.png",
+  "website": "https://github.com/HarveyK1/Rise-Alarm",
+  "tintColor": "#FF9500",
+  "apps": [
+    {
+      "name": "Rise",
+      "bundleIdentifier": "app.risealarm.Rise",
+      "developerName": "HarveyK1",
+      "subtitle": "Alarm clock with wake-up missions",
+      "localizedDescription": "An alarm you have to get up to turn off. Wake-up missions (maths, shake, scan a code, memory tiles, typing, tap challenge, photo match, say the word), a lock-screen card, volume lock, gentle wake-up, backup siren, wake-up check, talking alarm, custom sounds, weather and wake-up streaks.",
+      "iconURL": "https://raw.githubusercontent.com/HarveyK1/Rise-Alarm/main/Rise/Icon.png",
+      "tintColor": "#FF9500",
+      "category": "utilities",
+      "screenshots": [],
+      "versions": [
+        {
+          "version": "0.7.2",
+          "buildVersion": "1",
+          "date": "2026-10-17T07:45:28+01:00",
+          "localizedDescription": "New app ID (app.risealarm.Rise): install Rise from this source again and delete the old copy. Otherwise the same as 0.7.1.",
+          "downloadURL": "https://github.com/HarveyK1/Rise-Alarm/releases/download/v0.7.2/Rise.ipa",
+          "size": 2622486,
+          "minOSVersion": "17.0"
+        }
+      ],
+      "appPermissions": {
+        "entitlements": [],
+        "privacy": {
+          "NSCameraUsageDescription": "Rise uses the camera to scan your code or match your photo in wake-up missions.",
+          "NSLocationWhenInUseUsageDescription": "Rise uses your location to show the weather where you are.",
+          "NSMicrophoneUsageDescription": "Rise listens for the word you say in the \"Say the word\" wake-up mission.",
+          "NSSpeechRecognitionUsageDescription": "Rise turns what you say into text to check the \"Say the word\" mission."
+        }
+      }
+    }
+  ],
+  "news": []
+}

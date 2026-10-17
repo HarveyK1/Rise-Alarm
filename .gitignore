@@ -1,0 +1,13 @@
+# Local-only files: Apple's Xcode download (its licence forbids sharing) and any archives.
+*.xip
+*.zip
+
+# Built app: shipped as a GitHub Release asset, not committed.
+*.ipa
+
+# Build leftovers
+Rise/.build/
+Rise/xtool/
+Rise/.bsp/
+__pycache__/
+.DS_Store

@@ -1,0 +1,8 @@
+version: 1
+bundleID: app.risealarm.Rise
+product: Rise
+infoPath: Info.plist
+iconPath: Icon.png
+extensions:
+  - product: RiseWidget
+    infoPath: RiseWidget-Info.plist
