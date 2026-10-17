@@ -18,6 +18,15 @@
       "screenshots": [],
       "versions": [
         {
+          "version": "0.7.3",
+          "buildVersion": "0.7.3",
+          "date": "2026-10-17T08:06:01+01:00",
+          "localizedDescription": "New About section at the top of Settings: version, build, links to What's new and the source code, and a button to copy the AltStore source link.",
+          "downloadURL": "https://github.com/HarveyK1/Rise-Alarm/releases/download/v0.7.3/Rise.ipa",
+          "size": 2655070,
+          "minOSVersion": "17.0"
+        },
+        {
           "version": "0.7.2",
           "buildVersion": "1",
           "date": "2026-10-17T07:45:28+01:00",

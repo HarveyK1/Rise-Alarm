@@ -20,7 +20,7 @@ Personal iPhone alarm app with wake-up missions. Swift/SwiftUI, built on Windows
 Public repo **github.com/HarveyK1/Rise-Alarm** (gh account `HarveyK1`; check `gh api user --jq .login` first, since another account is also logged in). Commits use the repo-local noreply email, never a real address.
 1. Commit the code + docs (not the source yet) and `git push`, so the release tag points at the new code.
 2. Put the release notes in a file (PowerShell breaks quoted multi-line args), then `gh release create v<version> Rise.ipa --title "Rise <version>" --notes-file <file>`.
-3. Only then `python update_source.py "what changed"` (reads Rise.ipa and adds the version to `altstore-source.json`; AltStore rejects mismatched versions/permissions, so never edit those by hand), commit it and push. This order means AltStore never sees a version whose IPA isn't uploaded.
+3. Only then `python update_source.py "what changed"` (use `py` if `python` isn't found; reads Rise.ipa and adds the version to `altstore-source.json`; AltStore rejects mismatched versions/permissions, so never edit those by hand), commit it and push. This order means AltStore never sees a version whose IPA isn't uploaded.
 4. Verify: the source URL loads, and the downloadURL size matches.
 `*.xip`, `*.zip` and `*.ipa` are never committed (.gitignore). **Never publish personal details:** no Apple ID, team ID, emails, device model or IDs, location, Windows username or local folder paths. Commits must use the noreply email (the user's GitHub web edits once leaked their real email). Before pushing, scan for these.
 
