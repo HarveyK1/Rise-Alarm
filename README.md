@@ -4,7 +4,7 @@
 [![Watchers](https://img.shields.io/github/watchers/HarveyK1/Rise-Alarm?style=for-the-badge)](https://github.com/HarveyK1/Rise-Alarm/watchers)
 [![Forks](https://img.shields.io/github/forks/HarveyK1/Rise-Alarm?style=for-the-badge)](https://github.com/HarveyK1/Rise-Alarm/forks)
 [![License](https://img.shields.io/github/license/HarveyK1/Rise-Alarm?style=for-the-badge)](https://github.com/HarveyK1/Rise-Alarm/blob/main/LICENSE)
-[![Views](https://hits.sh/github.com/HarveyK1/Rise-Alarm.svg?style=for-the-badge)](https://hits.sh/github.com/HarveyK1/Rise-Alarm/)
+[![Total Views](https://hits.sh/github.com/HarveyK1/Rise-Alarm.svg?view=total&style=for-the-badge&label=total%20views)](https://hits.sh/github.com/HarveyK1/Rise-Alarm/)
 
 
 An iPhone alarm clock you have to get up to turn off. Rise rings until you finish a wake-up mission: solve sums, shake the phone, scan a code in another room, and more.
