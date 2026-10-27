@@ -57,4 +57,5 @@ Useful for iOS-level problems. It's how the lock-screen card issues were found. 
 - **`$'\r': command not found`**: the script has Windows line endings. The `tr -d '\r'` in the README command handles it.
 - **AltStore says the app's permissions or version don't match the source**: regenerate the entry with `update_source.py` from the exact IPA that was uploaded.
 - **AltStore: "HTTP 503 / auth servers returned an error" when installing**: Apple's sign-in servers refused for a moment. What fixed it here: restart AltServer on the PC, then reinstall AltStore from AltServer and try again. Otherwise wait 30–60 minutes and retry.
+- **AltStore: "this action cannot be completed at this time (-80045)"**: since about 13 Oct 2026 Apple rejects sign-ins from many sideloading tools. AltStore's **remote server / no-computer (LocalDevVPN) mode fails** with this error, but updating **through AltServer on the PC** (phone plugged in or on the same Wi-Fi) worked on 17 Oct 2026. Keep AltStore set to use AltServer.
 - **Swift test scripts** run with `. /root/.local/share/swiftly/env.sh; swift file.swift`. Used to check JSON decoding and streak logic.

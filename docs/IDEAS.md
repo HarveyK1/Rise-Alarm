@@ -4,6 +4,14 @@
 - Test the **round 3 extras** on the phone: gentle wake-up, backup loud sound, wake-up check (try "1 min after"), talking alarm, emergency escape.
 - Test **custom sound import** and the **stats/streak** card (0.7.0).
 - Photo match: if matching feels too strict or loose, note the scores shown and tune the 18/15/12 thresholds.
+- **AltStore app IDs and HTTP 503 (researched 17 Oct 2026):**
+  - **Limit:** a free Apple ID can register 10 app IDs per 7 days. Each ID expires 7 days after it's made and stops counting. AltStore → My Apps → View App IDs shows each one and its expiry date. Hitting the limit gives its own error ("cannot register more than 10 App IDs within a 7 day period", AltStore error 1009), not a 503.
+  - **Rise uses 2 IDs:** the app plus the lock-screen card extension.
+  - **Updates don't make new IDs:** AltStore reuses the existing ID for an app it already has (its `FetchProvisioningProfilesOperation`). The IDs used up on 16–17 Oct came from one-offs: direct installs, the old app ID, and the new `app.risealarm.Rise` in 0.7.2. Don't change the app ID again.
+  - **Can't remove or reset them:** they live on Apple's servers. SideStore has a Delete button, but warns that on a free account deleting doesn't free a slot.
+  - **SideStore** (AltStore fork, AGPL-3.0) has two things AltStore doesn't. A custom app ID box on install lets you reuse an unexpired ID you already have (Sideloadly also lets you set a custom ID). Its "Use Main Profile" option signs extensions with the main app's ID, so Rise would need 1 ID; untested whether the lock-screen card still works that way. It also refreshes on the phone with no PC (LocalDevVPN; one-time PC setup with iTunes and iloader). Switching means moving over fully, because two tools on one Apple ID revoke each other.
+  - **HTTP 503 cause:** in Sept 2026 Apple started rejecting sign-ins from tools that identify as Xcode, which broke AltStore, SideStore and iLoader. AltServer for Mac 1.7.6 fixed it. No confirmed fix found for AltServer on Windows (check for updates in its tray menu). SideStore's fix is only in 0.7.0-alpha; 0.6.4 and older can't sign in. Avoid unofficial "patched AltServer" builds, since they handle the Apple ID password.
+  - **Decision:** stay on AltStore. Look at SideStore again once a non-alpha version with the sign-in fix is out.
 
 ## Suggested, not picked yet
 1. **Bedtime reminder ("arm for tonight")**: a nightly notification; opening Rise restarts the 8-hour lock-screen card and re-arms after a phone restart. *(Small; most useful for reliability.)*

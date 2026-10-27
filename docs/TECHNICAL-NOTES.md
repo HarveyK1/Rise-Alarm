@@ -50,3 +50,6 @@ Saved data (UserDefaults): `alarms`, `weatherPlace`, `customSounds`, `wakeRecord
 ## Device facts
 - Requires iOS 17.
 - Installed only through AltStore (free Apple ID, 7-day signing that AltStore refreshes). The IPA is built unsigned. The in-app "Signing" date comes from the profile Rise was installed with, so after an AltStore refresh it's only a minimum.
+
+## Saved data and restarts (0.7.4)
+After a restart iOS can launch Rise in the background before the first unlock (prewarming, background audio). Saved data (UserDefaults) is locked until then and reads as empty, and saving that empty state wiped the alarms and weather place. `whenDataReadable` (RiseApp.swift) delays loading until `isProtectedDataAvailable`, and each store (`AlarmEngine`, `WakeStats`, `SoundLibrary`) refuses to save or reschedule until it has loaded. Anything new that reads UserDefaults at launch must go through it too.

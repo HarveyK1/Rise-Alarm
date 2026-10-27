@@ -37,7 +37,8 @@ Rise started as a personal alarm app: an alarm you have to get up to turn off, w
 | 0.7.0 | **Custom sounds** (import from Files) + **wake-up stats & streak** | Not yet confirmed |
 | 0.7.1 | AltStore-only: the Settings "Signing" section ("at least X days left", then "Refreshed by AltStore ✓"); false re-sign reminders removed | First update delivered through the AltStore source |
 | 0.7.2 | New neutral app ID `app.risealarm.Rise` (no personal details anywhere in the project) | Installed from the AltStore source (after an AltStore "HTTP 503" fixed by restarting AltServer and reinstalling AltStore) |
-| 0.7.3 | **About** section at the top of Settings (version, build, links); build number now matches the version (was always "1") | First update test through AltStore on the new app ID |
+| 0.7.3 | **About** section at the top of Settings (version, build, links); build number now matches the version (was always "1") | **Confirmed:** updated in place through AltStore (via AltServer; the remote-server mode failed with -80045) |
+| 0.7.4 | **Fix: alarms, weather place, stats and sounds wiped after a restart.** iOS can launch Rise before the first unlock, when saved data reads as empty; Rise now waits for the unlock before loading and never saves before loading | Not yet confirmed |
 
 ## Part 3: how it gets to the phone
 

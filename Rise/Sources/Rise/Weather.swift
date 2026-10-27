@@ -82,8 +82,10 @@ final class WeatherModel: ObservableObject {
     private let locator = LocationFetcher()
 
     init() {
-        if let data = UserDefaults.standard.data(forKey: "weatherPlace") {
-            place = try? JSONDecoder().decode(WeatherPlace.self, from: data)
+        whenDataReadable { [weak self] in
+            if let data = UserDefaults.standard.data(forKey: "weatherPlace") {
+                self?.place = try? JSONDecoder().decode(WeatherPlace.self, from: data)
+            }
         }
     }
 

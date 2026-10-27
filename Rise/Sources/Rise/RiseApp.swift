@@ -66,6 +66,20 @@ final class AppDelegate: NSObject, UIApplicationDelegate, UNUserNotificationCent
     }
 }
 
+/// After a restart iOS can launch Rise in the background before the phone is first unlocked. Saved data is
+/// locked until then and reads as empty, which used to wipe the alarms and weather place.
+/// Runs `work` now if saved data is readable, otherwise straight after the first unlock.
+@MainActor
+func whenDataReadable(_ work: @escaping @MainActor () -> Void) {
+    if UIApplication.shared.isProtectedDataAvailable { work(); return }
+    var token: NSObjectProtocol?
+    token = NotificationCenter.default.addObserver(forName: UIApplication.protectedDataDidBecomeAvailableNotification,
+                                                   object: nil, queue: .main) { _ in
+        if let token { NotificationCenter.default.removeObserver(token) }
+        MainActor.assumeIsolated { work() }
+    }
+}
+
 // MARK: - Model
 
 enum MissionKind: String, Codable, CaseIterable, Identifiable {
@@ -199,8 +213,14 @@ final class AlarmEngine: ObservableObject {
     private var backupTimer: Timer?
     private var talkTimer: Timer?
     private let center = UNUserNotificationCenter.current()
+    /// False until the saved alarms have been read. Until then nothing is saved or rescheduled,
+    /// so an empty list can't overwrite the real one or cancel its notifications.
+    private var loaded = false
 
-    private init() {
+    private init() {}
+
+    private func load() {
+        defer { loaded = true }
         guard let data = UserDefaults.standard.data(forKey: "alarms") else { return }
         if var saved = try? JSONDecoder().decode([Alarm].self, from: data) {
             // A removed mission (e.g. 30 steps) loads as maths; keep it within maths' normal 1...10.
@@ -224,7 +244,12 @@ final class AlarmEngine: ObservableObject {
         }
         RunLoop.main.add(timer, forMode: .common)
         tick = timer
-        reschedule()
+        whenDataReadable {
+            self.load()
+            WakeStats.shared.load()
+            SoundLibrary.shared.load()
+            self.reschedule()
+        }
     }
 
     func retryLockScreen() {
@@ -396,6 +421,7 @@ final class AlarmEngine: ObservableObject {
     }
 
     private func reschedule() {
+        guard loaded else { return }
         let now = Date()
         var fresh: [UUID: Date] = [:]
         for a in alarms where a.enabled {
@@ -474,6 +500,7 @@ final class AlarmEngine: ObservableObject {
     }
 
     private func save() {
+        guard loaded else { return }
         if let data = try? JSONEncoder().encode(alarms) {
             UserDefaults.standard.set(data, forKey: "alarms")
         }

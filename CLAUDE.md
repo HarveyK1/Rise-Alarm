@@ -31,4 +31,4 @@ Public repo **github.com/HarveyK1/Rise-Alarm** (gh account `HarveyK1`; check `gh
 - iOS limits that shape the design (Live Activity stale-date trick, background-audio keep-alive, no AlarmKit before iOS 26) are in `docs/TECHNICAL-NOTES.md`; read it before touching ringing or the lock-screen card.
 
 ## Status
-v0.7.3 published (About section; first AltStore update on the new app ID). Round 3 extras, custom sounds and stats are not yet confirmed on device. Backlog in `docs/IDEAS.md`. When versions change, update `docs/HISTORY.md` and `docs/FEATURES.md`.
+v0.7.4 published (fix: data wiped after a restart). v0.7.3 confirmed updating in place through AltStore (via AltServer on the PC; AltStore's remote-server mode currently fails with -80045). Round 3 extras, custom sounds and stats are not yet confirmed on device. Backlog in `docs/IDEAS.md`. When versions change, update `docs/HISTORY.md` and `docs/FEATURES.md`.

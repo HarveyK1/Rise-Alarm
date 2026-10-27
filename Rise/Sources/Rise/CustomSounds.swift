@@ -20,8 +20,12 @@ final class SoundLibrary: ObservableObject {
         .appendingPathComponent("CustomSounds")
 
     @Published private(set) var sounds: [CustomSound] = []
+    private var loaded = false   // see whenDataReadable
 
-    private init() {
+    private init() {}
+
+    func load() {
+        loaded = true
         if let data = UserDefaults.standard.data(forKey: "customSounds"),
            let saved = try? JSONDecoder().decode([CustomSound].self, from: data) {
             sounds = saved
@@ -82,6 +86,7 @@ final class SoundLibrary: ObservableObject {
     }
 
     private func save() {
+        guard loaded else { return }
         UserDefaults.standard.set(try? JSONEncoder().encode(sounds), forKey: "customSounds")
     }
 }

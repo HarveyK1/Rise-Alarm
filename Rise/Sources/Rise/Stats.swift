@@ -18,8 +18,12 @@ struct WakeRecord: Codable, Identifiable {
 final class WakeStats: ObservableObject {
     static let shared = WakeStats()
     @Published private(set) var records: [WakeRecord] = []
+    private var loaded = false   // see whenDataReadable
 
-    private init() {
+    private init() {}
+
+    func load() {
+        loaded = true
         if let data = UserDefaults.standard.data(forKey: "wakeRecords"),
            let saved = try? JSONDecoder().decode([WakeRecord].self, from: data) {
             records = saved
@@ -75,6 +79,7 @@ final class WakeStats: ObservableObject {
     }
 
     private func save() {
+        guard loaded else { return }
         UserDefaults.standard.set(try? JSONEncoder().encode(records), forKey: "wakeRecords")
     }
 }

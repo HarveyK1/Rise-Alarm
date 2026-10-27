@@ -9,7 +9,7 @@
 
 An iPhone alarm clock you have to get up to turn off. Rise rings until you finish a wake-up mission: solve sums, shake the phone, scan a code in another room, and more.
 
-**Current version: 0.7.3**, for iOS 17 and later.
+**Current version: 0.7.4**, for iOS 17 and later.
 
 > **Upgrading from 0.7.1 or earlier?** Version 0.7.2 has a new app ID, so AltStore treats it as a new app. Install Rise from the source again, delete the old copy, and set your alarms up once more.
 
